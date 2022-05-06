@@ -20,7 +20,7 @@ const main = async() => {
                         return p.id === id
                     })
                     
-
+                    search.guardarHistorial(lugarEncontrado.nombre)
                     const climaEncontrado = await search.searchWeather(lugarEncontrado.latitud, lugarEncontrado.longitud)
                     
                     console.log('\nResultado de la Busqueda\n')

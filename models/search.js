@@ -1,6 +1,8 @@
 const axios = require('axios')
 class Search{
-    constructor(){}
+    constructor(){
+        this.historial = []
+    }
 
 
     get parametrosMapBox(){
@@ -44,6 +46,19 @@ class Search{
             temperatura_maxima : main.temp_max,
             description : weather[0].description
        }
+    }
+
+
+    guardarHistorial(nombre){
+
+        const existe = this.historial.some( p => p === nombre)
+        if(existe) return 
+
+        if(this.historial.length >= 5){
+            this.historial.pop()
+        }
+        this.historial.unshift(nombre)
+       
     }
 }
 
