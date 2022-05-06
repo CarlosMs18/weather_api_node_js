@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/CarlosMs18/weather_api_node_js#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "inquirer": "^8.2.4"
   }
