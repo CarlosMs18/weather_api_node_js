@@ -33,18 +33,14 @@ const main = async() => {
                     console.log('Clima ', climaEncontrado.description)
                   break;
                 case 2:
-                    console.log('historial')
+                    console.log(search.historial)
                     break;
                 case 3:
-                    console.log('salir')
+                    console.log('Exit!')
                     break;
               default:
                   break;
           }
-
-
-
-
           await pausa()
     } while (option !== 0);
 }
