@@ -1,7 +1,11 @@
+const fs = require('fs')
+const path = require('path')
 const axios = require('axios')
+const pathRoute = path.join(__dirname, '../db/data.json')
 class Search{
     constructor(){
         this.historial = []
+        this.leerDB()
     }
 
 
@@ -58,7 +62,30 @@ class Search{
             this.historial.pop()
         }
         this.historial.unshift(nombre)
+        this.guardarDB()
        
+    }
+
+
+    guardarDB(){
+
+        const payload = {
+            historial : this.historial
+        }
+        
+        fs.writeFileSync(pathRoute, JSON.stringify(payload))
+
+    }
+
+    leerDB(){
+        if(!fs.existsSync(pathRoute)){
+            return
+        }
+
+        const resp = fs.readFileSync(pathRoute,{encoding:'utf-8'})
+        const data = JSON.parse(resp)
+        this.historial = data.historial
+
     }
 }
 
